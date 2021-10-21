@@ -19,3 +19,22 @@ class R2AAbr(IR2A):
         self.qi = self.parsed_mpd.get_qi()
 
         self.send_up(msg)
+   
+    def handle_segment_size_request(self, msg):
+        # time to define the segment quality choose to make the request
+        inicio = time.time();
+        
+        msg.add_quality_id(self.qi[0])
+        self.send_down(msg)
+
+    def handle_segment_size_response(self, msg):
+        fim = time.time();
+        transfer_t = (fim - inicio);
+        print(transfer_t);
+        self.send_up(msg)
+
+    def initialize(self):
+        pass
+
+    def finalization(self):
+        pass
