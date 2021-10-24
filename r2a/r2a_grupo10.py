@@ -25,8 +25,6 @@ class r2a_grupo10(IR2A):
         self.qi = parsed_mpd.get_qi()
         self.mss = self.qi[0]
         self.cwnd = self.mss*4
-        print('>>>>>CWND inicial>>>>>')
-        print(self.cwnd)
 
         self.send_up(msg)
    
